@@ -40,3 +40,13 @@ button {
   color: #0070f3;
   border-color: #0070f3;
 }
+
+.container {
+  min-height: 100vh;
+  padding: 0 0.5rem;
+  width: 85%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
