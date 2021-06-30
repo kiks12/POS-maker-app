@@ -12,6 +12,7 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
     "next": "11.0.1",
     "nodemon": "^2.0.8",
     "react": "17.0.2",
