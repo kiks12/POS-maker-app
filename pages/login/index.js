@@ -3,6 +3,17 @@ import Head from "next/head";
 import styles from "../../styles/Home.module.css";
 import { useText } from "../../custom hooks/useText";
 
+const postLoginRequest = async (loginCredentials) => {
+  try {
+    await fetch("http:localhost:4000/login/", {
+      method: "POST",
+      body: JSON.stringify(loginCredentials),
+    });
+  } catch (err) {
+    console.error(err);
+  }
+};
+
 /* login page instance */
 const Login = () => {
   /* login information state - username, password */
@@ -10,6 +21,7 @@ const Login = () => {
     username: "",
     password: "",
   });
+
   return (
     <>
       <Head>
@@ -20,6 +32,7 @@ const Login = () => {
           onSubmit={(e) => {
             e.preventDefault();
             console.log("login");
+            postLoginRequest(userLoginCredentials);
           }}>
           <input
             type='text'
@@ -33,7 +46,9 @@ const Login = () => {
             value={userLoginCredentials.password}
             onChange={(event) => setUserLoginCredentials(event)}
           />
-          <button type='submit' onClick={() => console.log("login")}>
+          <button
+            type='submit'
+            onClick={() => postLoginRequest(userLoginCredentials)}>
             Login
           </button>
         </form>
