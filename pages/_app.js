@@ -1,13 +1,9 @@
 /* app global dependencies */
 import "../styles/globals.css";
-import { Provider } from "next-auth/client";
 
+/* my app instance - whole application */
 function MyApp({ Component, pageProps }) {
-  return (
-    <Provider session={pageProps.session}>
-      <Component {...pageProps} />
-    </Provider>
-  );
+  return <Component {...pageProps} />;
 }
 
 export default MyApp;
