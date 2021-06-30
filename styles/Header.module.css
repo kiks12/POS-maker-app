@@ -1,5 +1,27 @@
 .header {
-  background-color: darkblue;
+  border-bottom: 1px solid var(--mainGrey);
   height: 9vh;
   display: flex;
+  flex-direction: row;
+  color: inherit;
+}
+
+.header div {
+  background-color: transparent;
+  color: var(--mainBlack);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header div nav ul {
+  display: flex;
+  list-style: none;
+}
+
+.header div nav ul li {
+  margin: 0 2vh;
+  cursor: pointer;
+  user-select: none;
 }
