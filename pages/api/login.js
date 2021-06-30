@@ -16,5 +16,5 @@ export default function handler(req, res) {
   const password = body.password;
 
   console.log(username, password);
-  res.redirect("/");
+  res.send({ username: username, password: password });
 }
