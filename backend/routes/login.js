@@ -5,8 +5,11 @@ const router = require("express").Router();
 
 /* GET login/ route */
 router.get("/", (req, res) => {
-  res.send("hello from login");
+  const { username, password } = req.body;
+  res.send(username, password);
 });
+
+/* POST login/ route */
 
 /* export router instance */
 module.exports = router;
