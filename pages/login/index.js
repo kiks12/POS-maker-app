@@ -2,10 +2,12 @@
 import Head from "next/head";
 import styles from "../../styles/Home.module.css";
 import { useText } from "../../custom hooks/useText";
+import fetch from "node-fetch";
 
+/* post login request to api - confirm login */
 const postLoginRequest = async (loginCredentials) => {
   try {
-    await fetch("http:localhost:4000/login/", {
+    await fetch("/api/login/", {
       method: "POST",
       body: JSON.stringify(loginCredentials),
     });
@@ -31,8 +33,6 @@ const Login = () => {
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            console.log("login");
-            postLoginRequest(userLoginCredentials);
           }}>
           <input
             type='text'
