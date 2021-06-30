@@ -2,15 +2,13 @@
 import Head from "next/head";
 import styles from "../../styles/Home.module.css";
 import { useText } from "../../custom hooks/useText";
-import fetch from "node-fetch";
+import { useFetchJson } from "../../custom hooks/useFetchJson";
 
 /* post login request to api - confirm login */
-const postLoginRequest = async (loginCredentials) => {
+const PostLoginRequest = async (loginCredentials) => {
   try {
-    await fetch("/api/login/", {
-      method: "POST",
-      body: JSON.stringify(loginCredentials),
-    });
+    const jsonData = await useFetchJson("/api/login/");
+    console.log(jsonData);
   } catch (err) {
     console.error(err);
   }
@@ -48,7 +46,7 @@ const Login = () => {
           />
           <button
             type='submit'
-            onClick={() => postLoginRequest(userLoginCredentials)}>
+            onClick={() => PostLoginRequest(userLoginCredentials)}>
             Login
           </button>
         </form>
