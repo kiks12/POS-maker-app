@@ -14,4 +14,12 @@ export default NextAuth({
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
   ],
+  /* pages routes */
+  pages: {
+    signIn: "/auth/signIn",
+    signOut: "/auth/signOut",
+    error: "/auth/error",
+    verifyRequest: "/auth/verify-request",
+    newUser: null,
+  },
 });
