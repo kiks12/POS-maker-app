@@ -1,9 +1,17 @@
 /* login page dependencies */
+import Head from "next/head";
 import styles from "../../styles/Home.module.css";
 
 /* login page instance */
 const login = () => {
-  return <div>Hello</div>;
+  return (
+    <>
+      <Head>
+        <title>Login</title>
+      </Head>
+      <div>Hello</div>
+    </>
+  );
 };
 
 /* export login page */
