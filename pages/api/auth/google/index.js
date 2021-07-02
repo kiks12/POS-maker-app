@@ -6,6 +6,6 @@ const handler = nextConnect();
 
 export default handler.get(
   passport.authenticate("google", {
-    scope: ["https://www.google.com/m8/feeds", "email", "profile"],
+    scope: ["https://www.google.com/m8/feeds", "email", "profile", "openid"],
   })
 );

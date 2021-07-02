@@ -12,7 +12,7 @@ const handler = nextConnect();
 /* export handler callback function */
 export default handler.get(
   passport.authenticate("google", { failureRedirect: "/login" }),
-  (req, res) => {
+  function (req, res) {
     res.redirect("/");
   }
 );
