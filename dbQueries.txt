@@ -1,0 +1,16 @@
+/* Create database POSmakr with fields: */
+CREATE DATABASE posmakr;
+
+/*
+Create Users Table with fields:
+    ID - serial not null
+    Username - varchar(255) = displayName
+    Fullname - varchar(255) = name
+    Email - varchar(255) = emails.value
+*/
+CREATE TABLE users (
+    ID SERIAL NOT NULL,
+    Username VARCHAR(255),
+    Fullname VARCHAR(255),
+    Email VARCHAR(255)
+);
