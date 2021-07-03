@@ -18,8 +18,8 @@ passport.use(
       const user = await connection.query(
         `SELECT * FROM users WHERE id='${profile.id}'`
       );
-      console.log(user);
-      return done(null, user);
+      console.log(user.rows);
+      return done(null, user.rows);
     },
     passport.serializeUser(function (user, done) {
       done(null, user);
