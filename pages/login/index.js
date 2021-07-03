@@ -1,8 +1,7 @@
 /* login page dependencies */
 import Head from "next/head";
-import styles from "../../styles/Home.module.css";
+import styles from "../../styles/Login.module.css";
 import { useText } from "../../custom hooks/useText";
-import { useFetchJson } from "../../custom hooks/useFetchJson";
 import Link from "next/link";
 import { applySession } from "next-session";
 
@@ -19,32 +18,43 @@ const Login = () => {
       <Head>
         <title>Login</title>
       </Head>
-      <div className={styles.container}>
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-          }}>
-          <input
-            type='text'
-            name='username'
-            value={userLoginCredentials.username}
-            onChange={(event) => setUserLoginCredentials(event)}
-          />
-          <input
-            type='password'
-            name='password'
-            value={userLoginCredentials.password}
-            onChange={(event) => setUserLoginCredentials(event)}
-          />
-          <button
-            type='submit'
-            onClick={() => PostLoginRequest(userLoginCredentials)}>
-            Login
-          </button>
-        </form>
-        <Link href='/api/auth/google' passHref={true}>
-          <button>Login in with Google</button>
-        </Link>
+      <div className='container center h-100'>
+        <div className='card'>
+          <h1>Login</h1>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+            }}
+            className='column'>
+            <div className='row'>
+              <label style={{ margin: "0px 10px 0px 0px" }}>Username</label>
+              <input
+                type='text'
+                name='username'
+                value={userLoginCredentials.username}
+                onChange={(event) => setUserLoginCredentials(event)}
+              />
+            </div>
+            <div className='row'>
+              <label style={{ margin: "0px 10px 0px 0px" }}>Password</label>
+              <input
+                className='form-control'
+                type='password'
+                name='password'
+                value={userLoginCredentials.password}
+                onChange={(event) => setUserLoginCredentials(event)}
+              />
+            </div>
+            <button
+              type='submit'
+              onClick={() => PostLoginRequest(userLoginCredentials)}>
+              Login
+            </button>
+            <Link href='/api/auth/google' passHref={true}>
+              <button>Login in with Google</button>
+            </Link>
+          </form>
+        </div>
       </div>
     </>
   );
