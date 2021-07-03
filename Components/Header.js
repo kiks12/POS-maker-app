@@ -1,8 +1,9 @@
 /* Header component dependencies */
 import styles from "../styles/Header.module.css";
+import Link from "next/link";
 
 /* Header component instance */
-const Header = () => {
+const Header = ({ username }) => {
   return (
     <header className={styles.header}>
       <div className='container'>
@@ -11,7 +12,9 @@ const Header = () => {
           <ul>
             <li>Home</li>
             <li>Create App</li>
-            <li>Username</li>
+            <Link href='/api/logout' passHref={true}>
+              <li>{username ? username : "guest"}</li>
+            </Link>
           </ul>
         </nav>
       </div>
