@@ -1,6 +1,7 @@
 /* passport configuration */
 const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth").OAuth2Strategy;
+const Users = require("../Database/user.model");
 
 /* passport strategy using google oauth 2 */
 passport.use(
@@ -12,7 +13,7 @@ passport.use(
     },
     function (accessToken, refreshToken, profile, done) {
       console.log(profile);
-
+      console.log(Users);
       return done();
     }
   )
