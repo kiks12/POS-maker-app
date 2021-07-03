@@ -13,4 +13,5 @@ const connection = new Pool({
   database: env.PG_DATABASE,
 });
 
+/* export database connection */
 export default connection;
