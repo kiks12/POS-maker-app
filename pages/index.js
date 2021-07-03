@@ -6,14 +6,15 @@ import { applySession } from "next-session";
 
 /* index page instance */
 export default function Home({ user }) {
-  const { displayName } = user;
+  const { username } = user;
+
   return (
     <>
       <Head>
         <title>Home</title>
       </Head>
       <main>
-        <Header username={displayName} />
+        <Header username={username} />
         <div className='container'>
           <div className='card'>
             <h1>Hello from POS maker</h1>
@@ -25,9 +26,19 @@ export default function Home({ user }) {
   );
 }
 
+/* server side logic  */
 export const getServerSideProps = async ({ req, res }) => {
   try {
     await applySession(req, res);
+    if (!req.session.passport) {
+      return {
+        redirect: {
+          destination: "/login",
+          permanent: false,
+        },
+      };
+    }
+
     const userInformation = req.session.passport.user;
 
     return {

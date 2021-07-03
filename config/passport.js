@@ -19,7 +19,7 @@ passport.use(
         `SELECT * FROM users WHERE id='${profile.id}'`
       );
       console.log(user.rows);
-      return done(null, user.rows);
+      return done(null, user.rows[0]);
     },
     passport.serializeUser(function (user, done) {
       done(null, user);

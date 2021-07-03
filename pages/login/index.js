@@ -2,18 +2,9 @@
 import Head from "next/head";
 import styles from "../../styles/Home.module.css";
 import { useText } from "../../custom hooks/useText";
-import Link from "next/link";
 import { useFetchJson } from "../../custom hooks/useFetchJson";
-
-/* post login request to api - confirm login */
-// const PostLoginRequest = async (loginCredentials) => {
-//   try {
-//     const jsonData = await useFetchJson("/api/login/");
-//     console.log(jsonData);
-//   } catch (err) {
-//     console.error(err);
-//   }
-// };
+import Link from "next/link";
+import { applySession } from "next-session";
 
 /* login page instance */
 const Login = () => {
@@ -57,6 +48,23 @@ const Login = () => {
       </div>
     </>
   );
+};
+
+export const getServerSideProps = async ({ req, res }) => {
+  await applySession(req, res);
+
+  if (req.session.passport) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {},
+  };
 };
 
 /* export login page */
