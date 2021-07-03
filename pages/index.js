@@ -29,6 +29,7 @@ export const getServerSideProps = async ({ req, res }) => {
   try {
     await applySession(req, res);
     const userInformation = req.session.passport.user;
+
     return {
       props: {
         user: userInformation,
