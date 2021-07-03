@@ -10,11 +10,13 @@ const fetchAllUsers = async () => {
     const rawUsersData = await connection.query("SELECT * FROM users");
     const allUsers = rawUsersData.rows;
     Users = allUsers;
+    return Users;
   } catch (err) {
     console.error(err);
   }
 };
 
+/* run fetch function */
 fetchAllUsers();
 
 /* export Users */
